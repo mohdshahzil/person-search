@@ -16,7 +16,7 @@ export default async function UserSearch({ searchParams }: { searchParams: Promi
       <SearchInput />
       {selectedUserId && (
         <Suspense fallback={<p>Loading user...</p>}>
-          {user ? <UserCard user={user} /> : null}
+          <UserCard userId={selectedUserId} />
         </Suspense>
       )}
     </div>

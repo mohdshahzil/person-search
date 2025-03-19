@@ -3,17 +3,20 @@ import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '@/componen
 import { Avatar, AvatarFallback } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import { Phone, Mail } from 'lucide-react'
-import { User } from '@/app/actions/schemas'
 import DeleteButton from './delete-button'
-import { UserEditDialog } from './user-edit-dialog'
+import { UserEditDialog } from './user-edit-dialog';
+import { getUserById } from '@/app/actions/actions';
+import { User } from '@/app/actions/schemas';
 
 interface UserCardProps {
-  user: User
+  userId: string;
 }
 
 console.log("UserCard module loaded");
 
-export default function UserCard({ user }: UserCardProps) {
+export default async function UserCard({ userId }: UserCardProps) {
+  const user: User | null = await getUserById(userId);
+
   if (!user || !user.name) {
     console.error("UserCard: Invalid user object", user);
     return <p>Error: Invalid user data</p>;
