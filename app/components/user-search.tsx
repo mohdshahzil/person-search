@@ -8,9 +8,6 @@ export default async function UserSearch({ searchParams }: { searchParams: Promi
   const resolvedSearchParams = await searchParams;
   const selectedUserId = resolvedSearchParams?.userId || null;
 
-  // Fetch the user based on the selectedUserId
-  const user = selectedUserId ? await getUserById(selectedUserId) : null;
-
   return (
     <div className="space-y-6">
       <SearchInput />
