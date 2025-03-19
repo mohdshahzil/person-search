@@ -1,7 +1,6 @@
 import { Suspense } from 'react';
 import SearchInput from './search-input-cmd';
 import UserCard from './user-card';
-import { getUserById } from '@/app/actions/actions';
 
 export default async function UserSearch({ searchParams }: { searchParams: Promise<{ userId?: string }> }) {
   // Resolve the searchParams asynchronously
