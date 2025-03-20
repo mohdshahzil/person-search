@@ -41,5 +41,5 @@ export function UserEditDialog({ user }: UserEditDialogProps) {
         phoneNumber: user.phoneNumber,
       }}
     />
-  )
+  );
 }
